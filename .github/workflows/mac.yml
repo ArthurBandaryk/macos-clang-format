@@ -16,9 +16,9 @@ jobs:
       
       - name: Check clang-format
         run: |
-          which clang-format >/dev/null
+          which clang-format
           if [[ $? != 0 ]]; then
-            printf "Failed to find 'clang-format' (please install it)\n"
+            echo "Failed to find 'clang-format' (please install it)"
             exit 1
           fi
         shell: bash    
