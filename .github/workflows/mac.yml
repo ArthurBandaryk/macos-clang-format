@@ -18,6 +18,7 @@ jobs:
         run: |
           status=$(clang-format --version) &&
           echo "::set-output name=status::$status"
+        continue-on-error: true
       
       - name: Exit if we do not have clang-format installed
         if: steps.main.outputs.status != 0
