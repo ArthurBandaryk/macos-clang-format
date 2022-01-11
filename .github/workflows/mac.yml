@@ -14,8 +14,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - name: Check clang-format
+      - name: Check clang-format version
         run: |
-          chmod +x check.sh
-          ./check.sh
-        shell: bash    
+          status=$(which clang-format >/dev/null)
+          echo "::set-output name=status::$status"
+      
+      - name: Exit if we do not have clang-format installed
+        if: steps.main.outputs.status != 0
+        run: exit 1
+          
+          
