@@ -1,0 +1,21 @@
+name: Check clang-format on macOS
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    branches:
+      - "main" 
+
+jobs:
+  check_clang_format:
+    runs-on: macos-latest
+    steps:
+      - name: Check clang-format
+        run: |
+          which clang-format >/dev/null
+          if [[ $? != 0 ]]; then
+            printf "Failed to find 'clang-format' (please install it)\n"
+            exit 1
+          fi
