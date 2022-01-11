@@ -16,7 +16,7 @@ jobs:
       
       - name: Check clang-format version
         run: |
-          status=$(which clang-format >/dev/null) &&
+          status=$(clang-format --version) &&
           echo "::set-output name=status::$status"
       
       - name: Exit if we do not have clang-format installed
