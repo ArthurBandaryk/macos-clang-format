@@ -21,3 +21,4 @@ jobs:
             printf "Failed to find 'clang-format' (please install it)\n"
             exit 1
           fi
+        shell: bash    
