@@ -16,13 +16,11 @@ jobs:
       
       - name: Check clang-format version
         id: clang_format_status
-        run: |
-          status=$(clang-format --version) &&
-          echo "::set-output name=status::$status"
+        run: clang-format --version
         continue-on-error: true
       
       - name: Exit if we do not have clang-format installed
-        if: steps.clang_format_status.outputs.status != 0
+        if: steps.clang_format_status.outcome != 'success'
         run: exit 1
           
           
