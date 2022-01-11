@@ -21,6 +21,6 @@ jobs:
       
       - name: Exit if we do not have clang-format installed
         if: steps.clang_format_status.outcome != 'success'
-        run: exit 1
-          
-          
+        run:  |
+          echo "There is no clang-format installed."
+          exit 1
