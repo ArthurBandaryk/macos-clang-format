@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: Check clang-tidy
-        run: which clang-tidy-12
+        run: which clang-tidy
       
       - name: Check clang-format version
         id: clang_format_status
