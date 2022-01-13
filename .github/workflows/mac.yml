@@ -10,9 +10,12 @@ on:
 
 jobs:
   check_clang_format:
-    runs-on: macos-latest
+    runs-on: -latest
     steps:
       - uses: actions/checkout@v2
+      
+      - name: Check clang-tidy
+        run: which clang-tidy-12
       
       - name: Check clang-format version
         id: clang_format_status
