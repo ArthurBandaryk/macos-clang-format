@@ -16,7 +16,7 @@ jobs:
       
       - name: Check clang-tidy
         run: |
-          cd /etc/alternatives
+          cd /usr/bin
           ls -la
       
       - name: Check clang-format version
