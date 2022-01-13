@@ -16,7 +16,7 @@ jobs:
       
       - name: Check clang-tidy
         run: |
-          cd  usr/lib/llvm-12/bin/
+          cd  usr/lib/llvm-12/
           ls -la
       
       - name: Check clang-format version
