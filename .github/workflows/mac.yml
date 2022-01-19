@@ -10,22 +10,25 @@ on:
 
 jobs:
   check_clang_format:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
       
-      - name: Check clang-tidy
-        run: |
-          cd  /usr/lib/llvm-12/bin
-          ls -la
+      - name: Check curl on Windows
+        run: curl --version
       
-      - name: Check clang-format version
-        id: clang_format_status
-        run: clang-format --version
-        continue-on-error: true
+#       - name: Check clang-tidy
+#         run: |
+#           cd  /usr/lib/llvm-12/bin
+#           ls -la
       
-      - name: Exit if we do not have clang-format installed
-        if: steps.clang_format_status.outcome != 'success'
-        run:  |
-          echo "There is no clang-format installed."
-          exit 1
+#       - name: Check clang-format version
+#         id: clang_format_status
+#         run: clang-format --version
+#         continue-on-error: true
+      
+#       - name: Exit if we do not have clang-format installed
+#         if: steps.clang_format_status.outcome != 'success'
+#         run:  |
+#           echo "There is no clang-format installed."
+#           exit 1
