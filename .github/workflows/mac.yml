@@ -14,17 +14,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [macos-latest]
 
     steps:
       # Checkout the repository under $GITHUB_WORKSPACE.
       - uses: actions/checkout@v2
 
-      - name: Build on macos or ubuntu
-        if: ${{ matrix.os == 'macos-latest' || matrix.os == 'ubuntu-latest' }}
-        run: echo "building..."
-      
-      - name: Build on Windows
-        if: ${{ matrix.os == 'windows-latest' }}
-        run: echo "building..."
+      - name: Install clang-tidy
+        run: clang-tidy --version
       
