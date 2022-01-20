@@ -14,24 +14,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest]
+        os: [macos-latest]
 
     steps:
       # Checkout the repository under $GITHUB_WORKSPACE.
       - uses: actions/checkout@v2
 
-      - name: Create symlink clang-tidy on macOS
-        if: ${{ matrix.os == 'macos-latest' }}
-        run: | 
-          ln -s "$(brew --prefix llvm)/bin/clang-tidy" "/usr/local/bin/clang-tidy"
-          clang-tidy --version
-          
-      - name: Create symlink clang-tidy on Ubuntu
-        if: ${{ matrix.os == 'ubuntu-latest' }}
-        run: |
-          cd /home/linuxbrew/.linuxbrew/opt
-          ls -la
-          #which clang-tidy-12
-          #sudo ln -s $(which clang-tidy-12) /usr/bin/clang-tidy
-          #clang-tidy --version    
+      - name: Find
+        run: find --help
                 
