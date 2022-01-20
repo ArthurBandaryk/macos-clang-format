@@ -29,8 +29,8 @@ jobs:
       - name: Create symlink clang-tidy on Ubuntu
         if: ${{ matrix.os == 'ubuntu-latest' }}
         run: |
-          cd $(brew --prefix llvm@12)
-          ls -la
+          brew --prefix llvm@12
+          #ls -la
           #which clang-tidy-12
           #sudo ln -s $(which clang-tidy-12) /usr/bin/clang-tidy
           #clang-tidy --version    
