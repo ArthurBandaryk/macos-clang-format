@@ -30,7 +30,9 @@ jobs:
         if: ${{ matrix.os == 'ubuntu-latest' }}
         run: |
           which clang-12
-          which clang-tidy-12
-          sudo ln -s $(which clang-tidy-12) /usr/bin/clang-tidy
-          clang-tidy --version    
+          cd usr/bin
+          ls -la
+          #which clang-tidy-12
+          #sudo ln -s $(which clang-tidy-12) /usr/bin/clang-tidy
+          #clang-tidy --version    
                 
