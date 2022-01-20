@@ -22,6 +22,6 @@ jobs:
 
       - name: Install clang-tidy
         run: | 
-          cd $(brew --prefix llvm)/bin/clang 
+          cd $(brew --prefix llvm)/bin 
           ls -la
       
