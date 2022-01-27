@@ -10,16 +10,12 @@ on:
   
 jobs:
   build-and-test:
-    name: Build and Test
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [macos-latest]
 
     steps:
-      # Checkout the repository under $GITHUB_WORKSPACE.
-      - uses: actions/checkout@v2
-
-      - name: Find
-        run: find -H
+      - name: Install clang-format
+        run: brew install clang-format-13
                 
